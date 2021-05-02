@@ -7,5 +7,7 @@ const userRouter = require('koa-router')({
 
 
 userRouter.get('/', userController.all);
+userRouter.get('/:UID', userController.byUID);
+
 
 module.exports = userRouter;
