@@ -1,4 +1,6 @@
 const koa = require('koa')
+const bodyparser = require('koa-bodyparser');
+const koajson = require('koa-json');
 const defaultRouter = require('./routes/default');
 const koaServer = new koa();
 const API_PORT = 8128;
@@ -21,6 +23,10 @@ koaServer.use(async (ctx, next) => {
 
 });
 
+
+
+koaServer.use(bodyparser());
+koaServer.use(koajson());
 
 
 defaultRouter(koaServer);
