@@ -21,14 +21,13 @@ class UserController {
         }
     }
 
-    
     static async byUID(ctx) {
         try {
             return new Promise((resolve, reject)=> {
                 const query = 'SELECT * FROM CL_User WHERE UID = ?;'
                 db.query({
                     sql: query,
-                    values: [ctx.paramas.UID]
+                    values: [ctx.params.UID]
                 }, (err, res)=>{
                     if(err){
                         reject(err)
